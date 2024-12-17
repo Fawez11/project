@@ -1,0 +1,17 @@
+.footer_wrapper {
+    height: 65vh;
+    width: 100%;
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.footer_wrapper > img {
+    object-fit: cover;
+    height: 90%;
+    width: 90%;
+    -webkit-user-drag: none;
+}

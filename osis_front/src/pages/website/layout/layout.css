@@ -1,0 +1,22 @@
+.website_wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: auto;
+    width: 100%;
+}
+
+.navbar {
+    height: auto;
+    width: 100%;
+}
+
+.main {
+    height: auto;
+    width: 100%;
+}
+
+.footer {
+    height: auto;
+    width: 100%; 
+}

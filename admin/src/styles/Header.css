@@ -1,0 +1,103 @@
+/* admin/src/components/navigation/Header.css */
+.interactive-dropdown {
+  cursor: pointer;
+  position: relative;
+}
+
+.interactive-item {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.interactive-item:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  transform: translateX(5px);
+}
+
+.dropdown-item {
+  margin: 5px 0;
+}
+
+.sherah-dropdown-card-info {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  transition: all 0.3s ease;
+}
+
+.sherah-dropdown-card-name {
+  margin-left: 12px;
+  font-weight: 500;
+}
+
+.sherah-dropdown-card {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+  min-width: 200px;
+}
+
+.sherah-dropdown-card.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.sherah-dropdown-card_list li {
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.3s ease;
+}
+
+.sherah-dropdown-card.show .sherah-dropdown-card_list li {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.sherah-dropdown-card_list li:nth-child(1) {
+  transition-delay: 0.1s;
+}
+.sherah-dropdown-card_list li:nth-child(2) {
+  transition-delay: 0.2s;
+}
+.sherah-dropdown-card_list li:nth-child(3) {
+  transition-delay: 0.3s;
+}
+
+.sherah-header__author-img {
+  transition: transform 0.3s ease;
+}
+
+.sherah-header__author-img:hover {
+  transform: scale(1.1);
+}
+
+.interactive-item:active {
+  transform: scale(0.98);
+}
+
+/* Close dropdown when clicking outside */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: transparent;
+  display: none;
+  z-index: 999;
+}
+
+.overlay.show {
+  display: block;
+}

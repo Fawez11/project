@@ -1,0 +1,136 @@
+.preview-banniere-entete {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #000000;
+  width: 551px;
+  height: 301px;
+  border-radius: 16px;
+  padding: 32px;
+  position: relative;
+}
+
+.preview-banniere-entete .content {
+  flex: 1;
+  z-index: 2;
+  max-width: 50%;
+  padding-right: 32px;
+}
+
+.preview-banniere-entete .tag {
+  display: inline-block;
+  background: #ff4444;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: absolute;
+  top: 5%;
+  right: 5%;
+}
+
+.preview-banniere-entete h2 {
+  font-size: 25px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 12px;
+}
+
+.preview-banniere-entete p {
+  font-size: 16px;
+  color: #ffffff;
+  margin: 0 0 24px;
+  opacity: 0.8;
+  line-height: 1.5;
+}
+
+.preview-banniere-entete .shop-now {
+  background: #0d6efd;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.preview-banniere-entete .shop-now:hover {
+  background: #0b5ed7;
+  transform: translateX(5px);
+}
+
+.preview-banniere-entete .image-container {
+  position: absolute;
+  right: 32px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 45%;
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.preview-banniere-entete img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.preview-banniere-entete::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  border-radius: 16px;
+  pointer-events: none;
+}
+
+@media (max-width: 551px) {
+  .preview-banniere-entete {
+    width: 100%;
+    height: auto;
+    min-height: 301px;
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .preview-banniere-entete .content {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    order: 1;
+  }
+
+  .preview-banniere-entete .image-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    right: 0;
+    transform: none;
+    order: 0;
+    margin-bottom: 20px;
+  }
+
+  .preview-banniere-entete .tag {
+    position: relative;
+    top: 0;
+    right: 0;
+    margin-bottom: 16px;
+  }
+}

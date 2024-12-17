@@ -1,0 +1,97 @@
+.favContainer {
+    width: 45vw;
+    height: 100vh;
+    padding-top: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2rem;
+    overflow-y: auto;
+    background-color: #f9f9f9;
+}
+
+.titlee {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 24px;
+}
+
+.titlee > p {
+    font-size: 1.75rem;  
+    font-weight: bold;
+}
+
+.cardModalTable {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    width: 100%;
+}
+
+.thbodyaa {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    width: 100%;
+    height: auto;
+    overflow-y: auto;
+}
+
+.col {
+    height: 5rem;
+    width: 100%;
+    border-bottom: 1px solid #E2E6EA;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 24px;
+    background-color: #fff;
+    transition: background-color 0.2s;
+}
+
+.col:hover {
+    background-color: #f1f1f1;
+}
+
+.firstSection {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+}
+
+.productImage {
+    height: 3.2rem;
+    width: 3.2rem;
+    border-radius: 8px;
+    background-color: rgb(221, 221, 221);
+}
+
+.productTitle > p {
+    font-weight: 500;
+}
+
+.secondSection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.priceSec > p {
+    font-weight: 700;
+    font-size: 1.15rem;
+}
+
+.closeBtn {
+    cursor: pointer;
+}
+
+.bi-x-lg {
+    font-size: 1.5rem;
+}

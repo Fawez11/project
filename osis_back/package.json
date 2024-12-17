@@ -1,0 +1,54 @@
+{
+  "type": "module",
+  "exports": {
+    ".": "./server.js",
+    "./utils/*": "./utils/*.js",
+    "./App/*": "./App/*.js"
+  },
+  "imports": {
+    "#root/*": "./*.js",
+    "#utils/*": "./utils/*.js",
+    "#app/*": "./App/*.js"
+  },
+  "scripts": {
+    "start": "nodemon server.js",
+    "start:dev": "dotenv -e .env.development nodemon server.js",
+    "start:prod": "dotenv -e .env.production node server.js",
+    "seed:dev": "dotenv -e .env.development node utils/faker/faker.js",
+    "seed:prod": "dotenv -e .env.production node utils/faker/faker.js"
+  },
+  "dependencies": {
+    "axios": "^1.7.7",
+    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "cron": "^3.2.1",
+    "crypto": "^1.0.1",
+    "dotenv": "^16.4.5",
+    "dotenv-cli": "^7.4.4",
+    "express": "^4.21.1",
+    "express-rate-limit": "^7.4.1",
+    "express-validator": "^7.2.0",
+    "helmet": "^8.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "lodash": "^4.17.21",
+    "moment": "^2.30.1",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "mysql2": "^3.11.4",
+    "node-cache": "^5.1.2",
+    "node-cron": "^3.0.3",
+    "nodemailer": "^6.9.16",
+    "passport": "^0.7.0",
+    "passport-local": "^1.0.0",
+    "pg": "^8.13.0",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.37.5"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^9.2.0",
+    "nodemon": "^3.1.7",
+    "sequelize-cli": "^6.6.2"
+  }
+}

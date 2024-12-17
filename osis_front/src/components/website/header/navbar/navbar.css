@@ -1,0 +1,230 @@
+.navbar_wrapper {
+  background-color: white;
+  width: 100%;
+  height: 4.2rem;
+  padding: 0 7rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #dee2e7;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar_routes {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2rem;
+  height: 100%;
+}
+
+.categories_collapse {
+  height: auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1rem;
+  border-radius: 6px;
+  background: #1868d5;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.categories_collapse::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transition: all 0.5s ease;
+}
+
+.categories_collapse:hover::before {
+  left: 100%;
+}
+
+.categories_collapse:hover {
+  background: #1456b3;
+}
+
+.categories_collapse > p {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: white;
+  letter-spacing: 0.2px;
+}
+
+.route_pages {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.route_pages > p {
+  color: #2c2c2c;
+  padding: 0.6rem 1rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  font-size: 1.05rem;
+  font-weight: 500;
+  border-radius: 6px;
+  user-select: none;
+  position: relative;
+}
+
+.route_pages > p::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: #1868d5;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.route_pages > p:hover::after {
+  width: 70%;
+}
+
+.route_pages > p:hover {
+  color: #1868d5;
+  background-color: rgba(24, 104, 213, 0.05);
+}
+
+.entreprise_btn {
+  padding: 0.8rem 1.5rem;
+  background: linear-gradient(135deg, #2c2c2c, #1a1a1a);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  font-size: 1rem;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.entreprise_btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(135deg, #1a1a1a, #2c2c2c);
+}
+
+.categories_list {
+  z-index: 9999;
+  position: absolute;
+  width: 20rem;
+  background-color: white;
+  top: 4.2rem;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  padding: 0.8rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: opacity 0.15s ease-out, transform 0.15s ease-out,
+    visibility 0.15s ease-out;
+}
+
+.categories_list.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.categories_list_item {
+  transform: translateZ(0);
+  cursor: pointer;
+  transition: background-color 0.1s ease-out;
+}
+
+.categories_list_item:hover {
+  background-color: #f5f7f9;
+}
+
+.categories_list_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0.3rem;
+  height: 100%;
+  width: 100%;
+}
+
+.categories_list_item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  border-radius: 8px;
+  padding: 0.8rem 1rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.categories_list_item:hover {
+  background-color: #f5f7f9;
+  transform: translateX(4px);
+}
+
+.first_child {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1.2rem;
+  color: #2c2c2c;
+  font-weight: 500;
+}
+
+.first_child svg {
+  width: 18px;
+  height: 18px;
+  color: #1868d5;
+  flex-shrink: 0;
+}
+
+@media screen and (max-width: 1250px) {
+  .navbar_wrapper {
+    width: 100%;
+    height: 3.9rem;
+    padding: 0rem 2rem 0rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .navbar_wrapper {
+    display: none;
+  }
+}

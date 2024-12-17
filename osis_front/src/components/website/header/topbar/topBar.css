@@ -1,0 +1,29 @@
+.topbar_wrapper {
+  height: 2.5rem;
+  width: 100%;
+  background-color: #0965d0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0rem 8rem;
+  color: white;
+}
+
+.topbar_options {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media screen and (max-width: 1250px) {
+  .topbar_wrapper {
+    height: 2.5rem;
+    width: 100%;
+    background-color: #0965d0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0rem 2rem;
+  }
+}

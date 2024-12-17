@@ -1,0 +1,409 @@
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 999;
+  backdrop-filter: none;
+}
+
+.cardContainer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 45vw;
+  height: 100vh;
+  background-color: #f9f9f9;
+  box-shadow: -4px 0 25px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  backdrop-filter: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.titlee {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 12px 20px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.titlee > p:first-child {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.titlee > p:last-child {
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: all 0.2s;
+}
+
+.titlee > p:last-child:hover {
+  background-color: #f0f0f0;
+}
+
+.cardModalTable {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0 12px;
+  margin: 20px 0;
+}
+
+.theader {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 32px;
+  background: linear-gradient(to right, #f8f9fa, #ffffff);
+  border: 1px solid #eef0f2;
+  color: #666;
+  border-radius: 12px;
+  margin: 16px 0;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.theader p {
+  margin: 0;
+  font-weight: 600;
+}
+
+.theaderImg,
+.theaderProduct,
+.theaderPrice,
+.theaderQuantity,
+.theaderTotal {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.theaderImg {
+  width: 15%;
+}
+
+.theaderProduct {
+  width: 30%;
+}
+
+.theaderPrice {
+  width: 15%;
+}
+
+.theaderQuantity {
+  width: 20%;
+}
+
+.theaderTotal {
+  width: 20%;
+}
+
+.thbody {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.col {
+  padding: 12px 24px;
+  margin: 8px 0;
+  background-color: #fff;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.2s;
+}
+
+.col:hover {
+  background-color: #f1f1f1;
+}
+
+.thbodyImg {
+  width: 15%;
+}
+
+.thbodyProduct {
+  width: 30%;
+}
+
+.thbodyPrice {
+  width: 15%;
+}
+
+.thbodyQuantity {
+  width: 20%;
+}
+
+.thbodyTotal {
+  width: 20%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product-image {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.2s;
+}
+
+.thbodyProduct p {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin: 0;
+  margin-bottom: 4px;
+}
+
+.thbodyPrice p {
+  color: #666;
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+.thbodyTotal p {
+  font-weight: 600;
+  color: #127fff;
+  font-size: 1.05rem;
+}
+
+.thbodyQuantity {
+  background: #f5f7fa;
+  border-radius: 20px;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+}
+
+.thbodyQuantity button {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+  background: white;
+  color: #127fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.thbodyQuantity button:hover {
+  background: #127fff;
+  color: white;
+  transform: translateY(-1px);
+}
+
+.thbodyQuantity p {
+  min-width: 24px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.prodImg {
+  background-color: #f0f0f0;
+  height: 3.2rem;
+  width: 3.2rem;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.prodImg:hover {
+  transform: scale(1.05);
+}
+
+.checkout {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 32px;
+  border-top: 1px solid #e2e6ea;
+  margin-top: 20px;
+  background-color: #fff;
+  border-top: 2px solid #f0f0f0;
+  padding-top: 20px;
+}
+
+.checkout > button {
+  padding: 14px 28px;
+  background-color: #127fff;
+  color: white;
+  border-radius: 8px;
+  font-weight: 500;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s;
+  box-shadow: 0 4px 12px rgba(18, 127, 255, 0.2);
+  font-size: 1.1rem;
+}
+
+.checkout > button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.subtotal {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.subtotal p:first-child {
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
+.subtotal p:last-child {
+  font-weight: 600;
+  color: #127fff;
+  font-size: 1.2rem;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 200000;
+}
+
+.modalContent {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 90%;
+  position: relative;
+  z-index: 200001;
+}
+
+.modalContent button {
+  margin-top: 15px;
+  padding: 8px 16px;
+  background-color: #127fff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.modalContent button:hover {
+  background-color: #0056b3;
+}
+
+.modalContent ul {
+  list-style: none;
+  padding: 0;
+  margin: 15px 0;
+}
+
+.modalContent li {
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+@media (max-width: 768px) {
+  .theader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .theader p {
+    text-align: left;
+    font-size: 0.9em;
+  }
+
+  .col {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .thbodyQuantity {
+    justify-content: flex-start;
+  }
+
+  .cardContainer {
+    width: 100vw;
+  }
+}
+
+.close-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+}
+
+.close-button:hover {
+  background-color: #f0f0f0;
+}
+
+.close-button i {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.theader:hover {
+  background: linear-gradient(to right, #f0f2f5, #f8f9fa);
+  transform: translateY(-1px);
+  transition: all 0.3s ease;
+}
+
+.remove-button {
+  background: none;
+  border: none;
+  color: #dc3545;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: all 0.2s;
+  margin-left: 12px;
+}
+
+.remove-button:hover {
+  background-color: #fff1f1;
+  transform: scale(1.1);
+}

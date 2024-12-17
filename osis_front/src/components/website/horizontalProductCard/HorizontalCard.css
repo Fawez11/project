@@ -1,0 +1,119 @@
+.cardH {
+  max-width: 80%; /* Set a maximum width for the card to 800px */
+  background-color: #ffffff; /* White background for the card */
+  border: 1px solid #e0e0e0; /* Light gray border */
+  border-radius: 12px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  overflow: hidden; /* Prevent overflow */
+  transition: transform 0.3s, box-shadow 0.3s; /* Transition for hover effects */
+  margin: 20px; /* Margin around the card */
+  display: flex;
+  width: 100%;
+}
+
+.cardH:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Darker shadow on hover */
+}
+
+.card-img-top {
+  width: 30%; /* Full width for the image */
+  height: 300px; /* Adjusted height for a wider card */
+  object-fit: cover; /* Cover the area without distortion */
+}
+
+.card-body {
+  padding: 15px; /* Padding inside the card body */
+  display: flex; /* Flexbox for layout */
+  flex-direction: row; /* Column layout */
+  justify-content: space-between; /* Space between elements */
+  flex-grow: 1;
+}
+
+.text-section {
+  width: 80%; /* Allow text section to grow */
+}
+
+.card-title {
+  font-size: 1.5rem; /* Increased title font size */
+  font-weight: bold; /* Bold title */
+  color: #333; /* Dark gray color for the title */
+  margin: 0; /* Remove default margin */
+}
+
+.card-text {
+  font-size: 1rem; /* Increased description font size */
+  color: #666; /* Medium gray color for the description */
+  margin: 5px 0; /* Margin for spacing */
+  padding: 0.4rem;
+}
+
+.cta-section {
+  display: flex; /* Flexbox for layout */
+  justify-content: space-between; /* Space between price and button */
+  align-items: center; /* Center align items */
+  flex-direction: column;
+  width: 20%;
+}
+
+.button-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.custom-button {
+  background-color: #007bff; /* Button color */
+  color: white; /* Text color */
+  border: none; /* No border */
+  padding: 12px 3.5rem; /* Padding for the button */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s, transform 0.3s; /* Transition for hover effects */
+}
+
+.custom-button:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.pricee {
+  display: flex;
+  flex-direction: column; /* Stack prices vertically */
+  align-items: flex-start; /* Align items to the start */
+  margin-bottom: 15px; /* Space below the price section */
+}
+
+.original-price {
+  text-decoration: line-through; /* Strikethrough for original price */
+  color: #272727; /* Light gray color for original price */
+  font-size: 0.9rem; /* Smaller font size */
+  margin-right: 10px; /* Space between original and promotional price */
+}
+
+.promotional-price {
+  color: #202020; /* Red color for promotional price */
+  font-size: 1.5rem; /* Larger font size for emphasis */
+  font-weight: bold; /* Bold for emphasis */
+  margin-top: 5px; /* Space above promotional price */
+}
+
+.current-price {
+  color: #333; /* Dark gray for current price */
+  font-size: 1.5rem; /* Larger font size */
+  font-weight: bold; /* Bold for emphasis */
+  margin-top: 5px; /* Space above current price */
+}
+
+.availability {
+  margin-top: 10px; /* Space above availability text */
+  font-size: 1rem; /* Font size for availability */
+  font-weight: bold; /* Bold for emphasis */
+  color: #28a745; /* Green color for in stock */
+}
+
+.availability.out-of-stock {
+  color: #dc3545; /* Red color for out of stock */
+  font-weight: bold; /* Bold for emphasis */
+}
