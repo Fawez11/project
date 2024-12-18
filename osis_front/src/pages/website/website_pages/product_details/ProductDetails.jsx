@@ -11,6 +11,8 @@ import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import { ToggleContext } from "../../../../context/ToggleContext";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 const ProductGallery = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -155,6 +157,31 @@ const ProductDetails = () => {
     fetchProduct();
   }, [id]);
 
+  const handleFavoriteProduct = async () => {
+    try {
+      await axios.get(
+        `http://localhost:5000/api/product/addBookmark/${product.id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`, // Include Bearer token in headers
+          },
+        }
+      );
+      toast.success("Element added to Favorites", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     if (product?.id) {
       fetchSimilarProducts(product.id);
@@ -266,7 +293,7 @@ const ProductDetails = () => {
                   name: product.name,
                   finalPrice: product.price,
                   availability: product.availability,
-                  quantity,
+                  poductQuantity: quantity,
                 })
               }
             >
@@ -285,7 +312,10 @@ const ProductDetails = () => {
               </svg>
               Ajouter au panier
             </button>
-            <button className="wishlist-btn">
+            <button
+              className="wishlist-btn"
+              onClick={() => handleFavoriteProduct(product.id)}
+            >
               <svg
                 className="w-6 h-6"
                 fill="none"

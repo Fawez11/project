@@ -217,8 +217,9 @@ const getAllProductsByPartnerId = async (req, res) => {
 const addBookmark = async (req, res) => {
   const { params, user } = req;
   const { productId } = params;
+
   try {
-    const fetchedUser = await User.findByPk(user);
+    const fetchedUser = await User.findByPk(user.id);
     if (!fetchedUser) {
       return res.status(404).json({ error: "User not found" });
     }
@@ -238,11 +239,12 @@ const getAllBookmarksByUserId = async (req, res) => {
   const { user } = req;
 
   try {
-    const fetchedUser = await User.findByPk(user);
+    const fetchedUser = await User.findByPk(user.id, {});
+    console.log(fetchedUser);
     if (!fetchedUser) {
       return res.status(404).json({ error: "User not found" });
     }
-    const bookmarks = await fetchedUser.getProducts();
+    const bookmarks = await fetchedUser.getProduct();
     return res.status(200).json(bookmarks);
   } catch (error) {
     console.error("Error fetching bookmarks by fetchedUser ID:", error);
@@ -254,7 +256,7 @@ const removeBookmark = async (req, res) => {
   const { params, user } = req;
   const { productId } = params;
   try {
-    const fetchedUser = await User.findByPk(user);
+    const fetchedUser = await User.findByPk(user.id);
     if (!fetchedUser) {
       return res.status(404).json({ error: "User not found" });
     }

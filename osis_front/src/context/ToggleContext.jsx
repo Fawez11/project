@@ -35,7 +35,7 @@ const ToggleProvider = ({ children }) => {
     setIsCartOpen(false);
   };
   const addToCart = (item) => {
-    const { id, name, image, finalPrice, availability, quantity } = item;
+    const { id, name, image, finalPrice, availability, productQuantity } = item;
     const itemIncludes = cart.filter((product) => product.id === item.id);
 
     if (!availability) {
@@ -43,14 +43,26 @@ const ToggleProvider = ({ children }) => {
     } else if (!itemIncludes.length) {
       setCart([
         ...cart,
-        { id, name, image, unitPrice: +finalPrice, quantity: quantity || 1 },
+        {
+          id,
+          name,
+          image,
+          unitPrice: +finalPrice,
+          quantity: productQuantity || 1,
+        },
       ]);
 
       localStorage.setItem(
         "cart",
         JSON.stringify([
           ...cart,
-          { id, name, image, unitPrice: +finalPrice, quantity: quantity || 1 },
+          {
+            id,
+            name,
+            image,
+            unitPrice: +finalPrice,
+            quantity: productQuantity || 1,
+          },
         ])
       );
       toast.success("Element added to cart", {

@@ -5,6 +5,8 @@ import { Badge, IconButton } from "@mui/material";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import { ToggleContext } from "../../../context/ToggleContext";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 const VerticalProductCard = ({ product }) => {
   const [imageError, setImageError] = React.useState(false);
@@ -31,6 +33,31 @@ const VerticalProductCard = ({ product }) => {
     // Use product.id to consistently get the same image for the same product
     const index = product.id ? product.id % mockImages.length : 0;
     return mockImages[index];
+  };
+
+  const handleFavoriteProduct = async () => {
+    try {
+      await axios.get(
+        `http://localhost:5000/api/product/addBookmark/${product.id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`, // Include Bearer token in headers
+          },
+        }
+      );
+      toast.success("Element added to Favorites", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+    } catch (error) {
+      toast.error("Failed to add product");
+    }
   };
 
   return (
@@ -75,7 +102,11 @@ const VerticalProductCard = ({ product }) => {
         Voir les détails
       </Link>
       <div className="product-icons-container">
-        <IconButton aria-label="favorites" size="small">
+        <IconButton
+          onClick={() => handleFavoriteProduct(product.id)}
+          aria-label="favorites"
+          size="small"
+        >
           <Badge
             sx={{
               "& .MuiBadge-badge": {

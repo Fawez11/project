@@ -34,6 +34,7 @@ router.get(
 );
 router.get("/partner/:partnerId", getAllProductsByPartnerId);
 router.get("/getAllBookmarks", verifyToken, getAllBookmarksByUserId);
+router.get("/addBookmark/:productId", verifyToken, addBookmark);
 router.delete("/removeBookmark/:productId", verifyToken, removeBookmark);
 router.patch("/handleEnable", verifyToken, checkAdminRole, handleEnable);
 router.patch("/handleDisable", verifyToken, checkAdminRole, handleDisable);

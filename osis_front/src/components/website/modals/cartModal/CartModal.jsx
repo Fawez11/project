@@ -7,53 +7,6 @@ import { toast } from "react-toastify";
 export const CartModal = () => {
   const { closeCart, cart, handleQuantityChange, removeFromCart, resetCart } =
     useContext(ToggleContext);
-  // const [cartData, setCartData] = useState([]);
-
-  // const fakeCartData = [
-  //   {
-  //     name: "MacBook Pro M2",
-  //     unitPrice: 1299.99,
-  //     quantity: 1,
-  //     image:
-  //       "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp14-spacegray-select-202301?wid=452&hei=420&fmt=jpeg&qlt=95&.v=1671304673229",
-  //   },
-  //   {
-  //     name: "iPhone 15 Pro Max",
-  //     unitPrice: 999.99,
-  //     quantity: 2,
-  //     image:
-  //       "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-15-pro-finish-select-202309-6-7inch-naturaltitanium?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=1692845702708",
-  //   },
-  //   {
-  //     name: "AirPods Pro",
-  //     unitPrice: 249.99,
-  //     quantity: 3,
-  //     image:
-  //       "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/airpods-pro-2-select-202309?wid=440&hei=330&fmt=jpeg&qlt=95&.v=1692845702708",
-  //   },
-  //   {
-  //     name: "iPad Air",
-  //     unitPrice: 599.99,
-  //     quantity: 1,
-  //     image:
-  //       "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/ipad-air-select-202309?wid=440&hei=330&fmt=jpeg&qlt=95&.v=1692845702708",
-  //   },
-  // ];
-
-  // useEffect(() => {
-  //   const storedCart = JSON.parse(localStorage.getItem("cart"));
-  //   if (storedCart && storedCart.length > 0) {
-  //     setCartData(storedCart);
-  //   } else {
-  //     setCartData(fakeCartData);
-  //     localStorage.setItem("cart", JSON.stringify(fakeCartData));
-  //   }
-  // }, []);
-
-  // const handleRemoveItem = (e, index) => {
-  //   e.stopPropagation(); // Prevent cart from closing
-  //   handleQuantityChange(index, -cartData[index].quantity);
-  // };
 
   const handleSendDevis = async () => {
     try {
@@ -67,7 +20,6 @@ export const CartModal = () => {
           },
         }
       );
-      console.log(response);
 
       if (response.status === 201) {
         resetCart();
