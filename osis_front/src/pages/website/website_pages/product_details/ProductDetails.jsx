@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import React, { useState, useEffect, useContext } from "react";
+import { useParams, Link, AbortedDeferredError } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 import apiEndpoints from "../../../../api/api";
@@ -10,6 +10,7 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
+import { ToggleContext } from "../../../../context/ToggleContext";
 
 const ProductGallery = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -103,6 +104,7 @@ const ProductDetails = () => {
   const [quantity, setQuantity] = useState(1);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [similarProducts, setSimilarProducts] = useState([]);
+  const { addToCart } = useContext(ToggleContext);
 
   // This array will be replaced by product.media when real data comes
   const sampleImages = [
@@ -257,6 +259,16 @@ const ProductDetails = () => {
             <button
               className="add-to-cart-btn"
               disabled={product.quantity === 0}
+              //{ id, name, image, finalPrice, availability }
+              onClick={() =>
+                addToCart({
+                  id: product.id,
+                  name: product.name,
+                  finalPrice: product.price,
+                  availability: product.availability,
+                  quantity,
+                })
+              }
             >
               <svg
                 className="w-5 h-5 mr-2"

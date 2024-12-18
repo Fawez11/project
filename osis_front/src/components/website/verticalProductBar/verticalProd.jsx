@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./verticalProd.css";
 import { Link } from "react-router-dom";
+import { Badge, IconButton } from "@mui/material";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
+import { ToggleContext } from "../../../context/ToggleContext";
 
 const VerticalProductCard = ({ product }) => {
   const [imageError, setImageError] = React.useState(false);
+  const { addToCart, toggleCart } = useContext(ToggleContext);
 
   const handleImageError = () => {
     setImageError(true);
@@ -69,7 +74,39 @@ const VerticalProductCard = ({ product }) => {
       <Link to={`/product/${product.id}`} className="view-details-btn">
         Voir les détails
       </Link>
-
+      <div className="product-icons-container">
+        <IconButton aria-label="favorites" size="small">
+          <Badge
+            sx={{
+              "& .MuiBadge-badge": {
+                backgroundColor: "white",
+                color: "black",
+              },
+            }}
+          >
+            <FavoriteBorderIcon sx={{ color: "grey", fontSize: 24 }} />
+          </Badge>
+        </IconButton>
+        <IconButton
+          aria-label="cart"
+          size="small"
+          onClick={() => {
+            toggleCart();
+            addToCart({ ...product, image: getProductImage() });
+          }}
+        >
+          <Badge
+            sx={{
+              "& .MuiBadge-badge": {
+                backgroundColor: "white",
+                color: "black",
+              },
+            }}
+          >
+            <ShoppingCartOutlinedIcon sx={{ color: "grey", fontSize: 24 }} />
+          </Badge>
+        </IconButton>
+      </div>
       <div className="product-ref">Réf: {product.reference || product.ref}</div>
     </div>
   );

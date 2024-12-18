@@ -183,3 +183,8 @@ hjb.product-title {
   opacity: 1;
   filter: grayscale(0%);
 }
+
+.product-icons-container {
+  display: flex;
+  justify-content: end;
+}

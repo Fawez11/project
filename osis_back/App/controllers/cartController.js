@@ -95,7 +95,6 @@ const handleSequelizeError = (error) => {
   }
 
   // Default server error
-  console.error("Server Error:", error);
   return {
     status: 500,
     message: "Erreur interne du serveur",
@@ -123,7 +122,8 @@ const addToCart = async (req, res) => {
       { transaction }
     );
 
-    const productIds = products.map((p) => p.productId);
+    const productIds = products.map((p) => p.id);
+
     const productDetails = await Product.findAll({
       where: {
         id: productIds,
@@ -132,6 +132,7 @@ const addToCart = async (req, res) => {
       },
       lock: true,
       transaction,
+      // raw: true,
     });
 
     const productMap = productDetails.reduce((acc, product) => {
@@ -141,12 +142,11 @@ const addToCart = async (req, res) => {
 
     // Validate all products first
     for (const item of products) {
-      const product = productMap[item.productId];
-
+      const product = productMap[item.id];
       if (!product) {
         await transaction.rollback();
         return res.status(404).json({
-          message: `Produit avec ID ${item.productId} non trouvé ou non disponible`,
+          message: `Produit avec ID ${item.id} non trouvé ou non disponible`,
         });
       }
 
@@ -154,7 +154,7 @@ const addToCart = async (req, res) => {
         await transaction.rollback();
         return res.status(400).json({
           message: `Quantité insuffisante pour le produit ${product.name}. Disponible: ${product.quantity}`,
-          productId: item.productId,
+          productId: item.id,
           availableQuantity: product.quantity,
         });
       }
@@ -163,7 +163,7 @@ const addToCart = async (req, res) => {
     // Create orders - hooks will handle calculations
     await Promise.all(
       products.map(async (item) => {
-        const product = productMap[item.productId];
+        const product = productMap[item.id];
 
         await product.update(
           {
@@ -175,7 +175,7 @@ const addToCart = async (req, res) => {
         return Order.create(
           {
             cartId: cart.id,
-            productId: item.productId,
+            productId: item.id,
             quantity: item.quantity,
           },
           { transaction }
